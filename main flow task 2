@@ -1,1 +1,182 @@
+def is_prime(n):
+    """
+    Determines if a number is prime.
+
+    Args:
+        n: The integer to check.
+
+    Returns:
+        True if n is prime, otherwise False.
+    """
+    if n <= 1:
+        return False
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
+
+# Example usage
+number = int(input("Enter a number: "))
+if is_prime(number):
+    print(f"{number} is a prime number.")
+else:
+    print(f"{number} is not a prime number.")
+
+    # sum of digit
+
+def sum_of_digits(n):
+    """
+    Finds the sum of the digits in a number.
+
+    Args:
+        n: The integer to process.
+
+    Returns:
+        The sum of the digits.
+    """
+    return sum(int(digit) for digit in str(n))
+
+# Example usage
+number = int(input("Enter a number: "))
+print(f"Sum of digits of {number} is {sum_of_digits(number)}")
+
+#LCM AND GCD
+
+import math
+
+def lcm(a, b):
+    """
+    Calculates the Least Common Multiple (LCM) of two integers.
+
+    Args:
+        a: The first integer.
+        b: The second integer.
+
+    Returns:
+        The LCM of a and b.
+    """
+    return (a * b) // math.gcd(a, b)
+
+# Example usage
+num1 = int(input("Enter the first number: "))
+num2 = int(input("Enter the second number: "))
+print(f"LCM of {num1} and {num2} is {lcm(num1, num2)}")
+print(f"GCD of {num1} and {num2} is {math.gcd(num1, num2)}")
+
+#REVERSE LIST
+
+def reverse_list(lst):
+    """
+    Reverses a given list without using built-in functions.
+
+    Args:
+        lst: The list to reverse.
+
+    Returns:
+        The reversed list.
+    """
+    reversed_lst = []
+    for i in range(len(lst) - 1, -1, -1):
+        reversed_lst.append(lst[i])
+    return reversed_lst
+
+# Example usage
+original_list = [1, 2, 3, 4, 5]
+reversed_list = reverse_list(original_list)
+print(f"Original list: {original_list}")
+print(f"Reversed list: {reversed_list}")
+
+#SORTING LIST
+
+def sort_list(lst):
+    """
+    Sorts a list of numbers in ascending order.
+
+    Args:
+        lst: The list to sort.
+
+    Returns:
+        The sorted list.
+    """
+    for i in range(len(lst)):
+        for j in range(0, len(lst) - i - 1):
+            if lst[j] > lst[j + 1]:
+                lst[j], lst[j + 1] = lst[j + 1], lst[j]
+    return lst
+
+# Example usage
+original_list = [5, 2, 9, 1, 5, 6]
+sorted_list = sort_list(original_list)
+print(f"Original list: {original_list}")
+print(f"Sorted list: {sorted_list}")
+
+#REMOVE DUPLECATE
+
+def remove_duplicates(lst):
+    """
+    Removes duplicate elements from a list.
+
+    Args:
+        lst: The list to process.
+
+    Returns:
+        A list with unique elements.
+    """
+    return list(set(lst))
+
+# Example usage
+original_list = [1, 2, 3, 2, 1, 4, 5, 4]
+unique_list = remove_duplicates(original_list)
+print(f"Original list: {original_list}")
+print(f"List with unique elements: {unique_list}")
+
+#STRING LENGTH
+
+def string_length(s):
+    """
+    Finds the length of a string without using the len() function.
+
+    Args:
+        s: The string to measure.
+
+    Returns:
+        The length of the string.
+    """
+    count = 0
+    for _ in s:
+        count += 1
+    return count
+
+# Example usage
+string = input("Enter a string: ")
+print(f"Length of the string is {string_length(string)}")
+
+#COUNT VOWEL AND CONSONANT23
+
+def count_vowels_and_consonants(s):
+    """
+    Counts the number of vowels and consonants in a string.
+
+    Args:
+        s: The string to analyze.
+
+    Returns:
+        A tuple containing the count of vowels and consonants.
+    """
+    vowels = set("aeiouAEIOU")
+    vowel_count = 0
+    consonant_count = 0
+    for char in s:
+        if char.isalpha():
+            if char in vowels:
+                vowel_count += 1
+            else:
+                consonant_count += 1
+    return vowel_count, consonant_count
+
+# Example usage
+string = input("Enter a string: ")
+vowel_count, consonant_count = count_vowels_and_consonants(string)
+print(f"Number of vowels: {vowel_count}")
+print(f"Number of consonants: {consonant_count}")
 
